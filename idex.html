@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Estilos anteriores mantidos */
         :root {
             --primary: #2c3e50;
             --secondary: #e74c3c;
@@ -16,422 +17,411 @@
         }
         
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+            min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
         }
         
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            margin-bottom: 20px;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .card-header {
-            background-color: var(--primary);
-            color: white;
-            border-radius: 15px 15px 0 0 !important;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .btn-primary:hover {
-            background-color: #1a252f;
-            border-color: #1a252f;
-        }
-        
-        .btn-danger {
-            background-color: var(--secondary);
-            border-color: var(--secondary);
+        .app-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 500px;
+            margin: 40px auto;
         }
         
         .logo-container {
+            background: var(--primary);
+            padding: 25px;
             text-align: center;
-            margin: 20px 0;
+            color: white;
         }
         
         .logo {
-            max-width: 200px;
-            height: auto;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         
         .slogan {
-            color: var(--primary);
             font-style: italic;
-            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .content-area {
+            padding: 25px;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 2px solid #e1e5eb;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #1a252f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--accent);
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
         }
         
         .point-badge {
-            background-color: var(--accent);
+            background: var(--accent);
             color: white;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
-            margin: 0 auto;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
         }
         
         .visit-item {
             border-left: 4px solid var(--accent);
-            padding-left: 15px;
+            padding: 10px 15px;
             margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
         }
         
         .premium-image {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
             border-radius: 10px;
-            margin-bottom: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .admin-panel {
-            background-color: var(--light);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .qr-code {
+        .tab-container {
             display: flex;
-            justify-content: center;
-            margin: 20px 0;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e1e5eb;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #6c757d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
         }
         
         .hidden {
             display: none;
         }
+        
+        .welcome-message {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+        
+        .history-container {
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 20px 0;
+            padding-right: 10px;
+        }
+        
+        .admin-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .client-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .client-table th, .client-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e1e5eb;
+        }
+        
+        .client-table th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .client-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .file-upload {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px dashed #e1e5eb;
+        }
+        
+        @media (max-width: 576px) {
+            .app-container {
+                margin: 20px 10px;
+                border-radius: 15px;
+            }
+            
+            .content-area {
+                padding: 20px 15px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-star me-2"></i>Deck Bar Fidelidade
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="clientViewLink">
-                            <i class="fas fa-user me-1"></i>Área do Cliente
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="adminViewLink">
-                            <i class="fas fa-cog me-1"></i>Administração
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <div class="app-container">
+        <!-- Cabeçalho com Logo -->
+        <div class="logo-container">
+            <div class="logo">DECK BAR</div>
+            <div class="slogan">"Aqui é Meu Lugar!"</div>
         </div>
-    </nav>
-
-    <!-- Área do Cliente -->
-    <div id="clientArea">
-        <!-- Tela Inicial (Cliente) -->
-        <div class="container mt-4" id="initialScreen">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="logo-container">
-                        <img src="https://via.placeholder.com/200x100/2c3e50/ffffff?text=Deck+Bar+VGP" alt="Logo Deck Bar VGP" class="logo">
-                        <h4 class="slogan">"Deck Bar, Aqui é Meu Lugar!"</h4>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-body">
-                            <form id="cpfForm">
-                                <div class="mb-3">
-                                    <label for="cpf" class="form-label">Digite seu CPF:</label>
-                                    <input type="text" class="form-control" id="cpf" placeholder="Apenas números" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">
-                                    <i class="fas fa-check-circle me-2"></i>Meus Pontos
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        
+        <!-- Área de Conteúdo -->
+        <div class="content-area">
+            <!-- Seletor de Modo (Cliente/Admin) -->
+            <div class="tab-container">
+                <div class="tab active" data-tab="client">Cliente</div>
+                <div class="tab" data-tab="admin">Administração</div>
             </div>
-        </div>
-
-        <!-- Cadastro (Cliente novo) -->
-        <div class="container mt-4 hidden" id="registerScreen">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="logo-container">
-                        <img src="https://via.placeholder.com/200x100/2c3e50/ffffff?text=Deck+Bar+VGP" alt="Logo Deck Bar VGP" class="logo">
-                        <h4 class="slogan">"Deck Bar, Aqui é Meu Lugar!"</h4>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-body">
-                            <form id="registerForm">
-                                <div class="mb-3">
-                                    <label for="clientName" class="form-label">Nome:</label>
-                                    <input type="text" class="form-control" id="clientName" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="clientCpf" class="form-label">CPF:</label>
-                                    <input type="text" class="form-control" id="clientCpf" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">
-                                    <i class="fas fa-user-plus me-2"></i>Cadastrar
-                                </button>
-                            </form>
+            
+            <!-- Área do Cliente -->
+            <div id="clientArea">
+                <!-- Tela Inicial (Cliente) -->
+                <div id="initialScreen">
+                    <h4 class="text-center mb-4">Verifique seus pontos</h4>
+                    <form id="cpfForm">
+                        <div class="mb-3">
+                            <label for="cpf" class="form-label">Digite seu CPF:</label>
+                            <input type="text" class="form-control" id="cpf" placeholder="Apenas números" required>
                         </div>
-                    </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-check-circle me-2"></i>Verificar Pontos
+                        </button>
+                    </form>
                 </div>
-            </div>
-        </div>
-
-        <!-- Tela Principal (Cliente) -->
-        <div class="container mt-4 hidden" id="mainScreen">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="logo-container">
-                        <img src="https://via.placeholder.com/200x100/2c3e50/ffffff?text=Deck+Bar+VGP" alt="Logo Deck Bar VGP" class="logo">
-                        <h4 class="slogan">"Deck Bar, Aqui é Meu Lugar!"</h4>
+                
+                <!-- Cadastro (Cliente novo) -->
+                <div id="registerScreen" class="hidden">
+                    <h4 class="text-center mb-4">Complete seu cadastro</h4>
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="clientName" class="form-label">Nome completo:</label>
+                            <input type="text" class="form-control" id="clientName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientCpf" class="form-label">CPF:</label>
+                            <input type="text" class="form-control" id="clientCpf" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-user-plus me-2"></i>Finalizar Cadastro
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Tela Principal (Cliente) -->
+                <div id="mainScreen" class="hidden">
+                    <div class="welcome-message">
+                        <h4 id="welcomeMessage">Olá, João!</h4>
                     </div>
                     
-                    <div class="card mb-4">
-                        <div class="card-body text-center">
-                            <h4 id="welcomeMessage">👋 Olá, João!</h4>
-                            <div class="point-badge my-3">
-                                <span id="pointsCount">7</span>
-                            </div>
-                            <p>Total de visitas: <span id="visitsCount">7</span></p>
+                    <div class="point-badge">
+                        <span id="pointsCount">7</span>
+                    </div>
+                    
+                    <p class="text-center">Total de visitas: <strong id="visitsCount">7</strong></p>
+                    
+                    <button class="btn btn-secondary w-100 mb-4" id="scanQRBtn">
+                        <i class="fas fa-qrcode me-2"></i>Ler QR Code
+                    </button>
+                    
+                    <h5 class="mb-3"><i class="fas fa-history me-2"></i>Histórico de Visitas</h5>
+                    <div class="history-container">
+                        <div id="historyList">
+                            <!-- Histórico será preenchido via JavaScript -->
                         </div>
                     </div>
                     
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="fas fa-history me-2"></i>Histórico
-                            </h5>
-                            <div id="historyList">
-                                <div class="visit-item">
-                                    <strong>12/08</strong> | Pedido #123
-                                </div>
-                                <div class="visit-item">
-                                    <strong>05/08</strong> | Pedido #120
-                                </div>
-                            </div>
+                    <h5 class="my-3"><i class="fas fa-gift me-2"></i>Prêmios</h5>
+                    <div id="premiumsContainer">
+                        <!-- Prêmios serão preenchidos via JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Área de Administração -->
+            <div id="adminArea" class="hidden">
+                <!-- Login Admin -->
+                <div id="adminLoginScreen">
+                    <h4 class="text-center mb-4">Painel do Administrador</h4>
+                    <form id="adminLoginForm">
+                        <div class="mb-3">
+                            <label for="adminUser" class="form-label">Usuário:</label>
+                            <input type="text" class="form-control" id="adminUser" required>
                         </div>
+                        <div class="mb-3">
+                            <label for="adminPassword" class="form-label">Senha:</label>
+                            <input type="password" class="form-control" id="adminPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-sign-in-alt me-2"></i>Entrar
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Menu Admin -->
+                <div id="adminMenuScreen" class="hidden">
+                    <h4 class="text-center mb-4">Painel Administrativo</h4>
+                    
+                    <div class="admin-section">
+                        <button class="btn btn-primary w-100 mb-3" id="generateQRBtn">
+                            <i class="fas fa-qrcode me-2"></i>Gerar QR Code
+                        </button>
+                        <button class="btn btn-primary w-100 mb-3" id="checkPointsBtn">
+                            <i class="fas fa-list me-2"></i>Conferir Pontos
+                        </button>
+                        <button class="btn btn-primary w-100 mb-3" id="settingsBtn">
+                            <i class="fas fa-cog me-2"></i>Configurações
+                        </button>
+                        <button class="btn btn-secondary w-100" id="adminLogoutBtn">
+                            <i class="fas fa-sign-out-alt me-2"></i>Sair
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Gerar QR Code -->
+                <div id="generateQRScreen" class="hidden">
+                    <h4 class="text-center mb-4">Gerar QR Code</h4>
+                    
+                    <form id="qrForm">
+                        <div class="mb-3">
+                            <label for="orderNumber" class="form-label">Nº do Pedido:</label>
+                            <input type="text" class="form-control" id="orderNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="orderValue" class="form-label">Valor Pago (R$):</label>
+                            <input type="number" class="form-control" id="orderValue" step="0.01" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-qrcode me-2"></i>Gerar QR Code
+                        </button>
+                    </form>
+                    
+                    <div class="qr-code hidden" id="qrCodeContainer">
+                        <div id="qrcode"></div>
+                        <p class="mt-3">QR Code válido por 30 segundos</p>
                     </div>
                     
-                    <div class="card mb-4">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">
-                                <i class="fas fa-qrcode me-2"></i>Ler QR Code
-                            </h5>
-                            <button class="btn btn-primary w-100" id="scanQRBtn">
-                                <i class="fas fa-camera me-2"></i>Escanear QR Code
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">
-                                <i class="fas fa-gift me-2"></i>Prêmios
-                            </h5>
-                            <div id="premiumsContainer">
-                                <img src="https://via.placeholder.com/300x150/3498db/ffffff?text=Prêmio+5+Pontos" class="premium-image" alt="Prêmio 5 pontos">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Área de Administração -->
-    <div id="adminArea" class="hidden">
-        <div class="admin-panel">
-            <!-- Login Admin -->
-            <div class="container" id="adminLoginScreen">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="logo-container">
-                            <img src="https://via.placeholder.com/200x100/2c3e50/ffffff?text=Deck+Bar+VGP" alt="Logo Deck Bar VGP" class="logo">
-                            <h4 class="slogan">Painel do Administrador</h4>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-body">
-                                <form id="adminLoginForm">
-                                    <div class="mb-3">
-                                        <label for="adminUser" class="form-label">Usuário:</label>
-                                        <input type="text" class="form-control" id="adminUser" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="adminPassword" class="form-label">Senha:</label>
-                                        <input type="password" class="form-control" id="adminPassword" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary w-100">
-                                        <i class="fas fa-sign-in-alt me-2"></i>Entrar
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Menu Admin -->
-            <div class="container hidden" id="adminMenuScreen">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="logo-container">
-                            <img src="https://via.placeholder.com/200x100/2c3e50/ffffff?text=Deck+Bar+VGP" alt="Logo Deck Bar VGP" class="logo">
-                            <h4 class="slogan">Painel Administrativo</h4>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <button class="btn btn-primary w-100 mb-3" id="generateQRBtn">
-                                    <i class="fas fa-qrcode me-2"></i>Gerar QR Code
-                                </button>
-                                <button class="btn btn-primary w-100 mb-3" id="checkPointsBtn">
-                                    <i class="fas fa-list me-2"></i>Conferir Pontos
-                                </button>
-                                <button class="btn btn-primary w-100 mb-3" id="settingsBtn">
-                                    <i class="fas fa-cog me-2"></i>Configurações
-                                </button>
-                                <button class="btn btn-secondary w-100" id="adminLogoutBtn">
-                                    <i class="fas fa-sign-out-alt me-2"></i>Sair
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gerar QR Code -->
-            <div class="container hidden" id="generateQRScreen">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4>Gerar QR Code</h4>
-                            <button class="btn btn-secondary" id="backToMenuBtn">
-                                <i class="fas fa-arrow-left me-1"></i>Voltar
-                            </button>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-body">
-                                <form id="qrForm">
-                                    <div class="mb-3">
-                                        <label for="orderNumber" class="form-label">Nº do Pedido:</label>
-                                        <input type="text" class="form-control" id="orderNumber" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="orderValue" class="form-label">Valor Pago (R$):</label>
-                                        <input type="number" class="form-control" id="orderValue" step="0.01" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary w-100">
-                                        <i class="fas fa-qrcode me-2"></i>Gerar QR Code
-                                    </button>
-                                </form>
-                                
-                                <div class="qr-code mt-4 hidden" id="qrCodeContainer">
-                                    <div id="qrcode"></div>
-                                    <p class="text-center mt-3">QR Code válido por 30 segundos</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Conferir Pontos -->
-            <div class="container hidden" id="checkPointsScreen">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4>Lista de Clientes</h4>
-                    <button class="btn btn-secondary" id="backToMenuBtn2">
-                        <i class="fas fa-arrow-left me-1"></i>Voltar
+                    <button class="btn btn-secondary w-100 mt-3" id="backToMenuBtn">
+                        <i class="fas fa-arrow-left me-2"></i>Voltar ao Menu
                     </button>
                 </div>
                 
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>CPF</th>
-                                        <th>Pontos</th>
-                                        <th>Último Pedido</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>João Silva</td>
-                                        <td>123.456.789-00</td>
-                                        <td>7</td>
-                                        <td>#123</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Maria Santos</td>
-                                        <td>987.654.321-00</td>
-                                        <td>5</td>
-                                        <td>#120</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Configurações (Prêmios) -->
-            <div class="container hidden" id="settingsScreen">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4>Configurações de Prêmios</h4>
-                    <button class="btn btn-secondary" id="backToMenuBtn3">
-                        <i class="fas fa-arrow-left me-1"></i>Voltar
+                <!-- Conferir Pontos -->
+                <div id="checkPointsScreen" class="hidden">
+                    <h4 class="text-center mb-4">Lista de Clientes</h4>
+                    
+                    <table class="client-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Pontos</th>
+                                <th>Último Pedido</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTableBody">
+                            <!-- Clientes serão preenchidos via JavaScript -->
+                        </tbody>
+                    </table>
+                    
+                    <button class="btn btn-secondary w-100 mt-3" id="backToMenuBtn2">
+                        <i class="fas fa-arrow-left me-2"></i>Voltar ao Menu
                     </button>
                 </div>
                 
-                <div class="card">
-                    <div class="card-body">
-                        <form id="premiumsForm">
-                            <div class="mb-3">
-                                <label for="premio5" class="form-label">Upload Imagem - 5 Pontos</label>
-                                <input class="form-control" type="file" id="premio5" accept="image/*">
-                            </div>
-                            <div class="mb-3">
-                                <label for="premio10" class="form-label">Upload Imagem - 10 Pontos</label>
-                                <input class="form-control" type="file" id="premio10" accept="image/*">
-                            </div>
-                            <div class="mb-3">
-                                <label for="premio15" class="form-label">Upload Imagem - 15 Pontos</label>
-                                <input class="form-control" type="file" id="premio15" accept="image/*">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="fas fa-save me-2"></i>Salvar
-                            </button>
-                        </form>
-                    </div>
+                <!-- Configurações (Prêmios) -->
+                <div id="settingsScreen" class="hidden">
+                    <h4 class="text-center mb-4">Configurações de Prêmios</h4>
+                    
+                    <form id="premiumsForm">
+                        <div class="file-upload">
+                            <label for="premio5" class="form-label">Imagem para 5 Pontos:</label>
+                            <input class="form-control" type="file" id="premio5" accept="image/*">
+                        </div>
+                        
+                        <div class="file-upload">
+                            <label for="premio10" class="form-label">Imagem para 10 Pontos:</label>
+                            <input class="form-control" type="file" id="premio10" accept="image/*">
+                        </div>
+                        
+                        <div class="file-upload">
+                            <label for="premio15" class="form-label">Imagem para 15 Pontos:</label>
+                            <input class="form-control" type="file" id="premio15" accept="image/*">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 mt-3">
+                            <i class="fas fa-save me-2"></i>Salvar Configurações
+                        </button>
+                    </form>
+                    
+                    <button class="btn btn-secondary w-100 mt-3" id="backToMenuBtn3">
+                        <i class="fas fa-arrow-left me-2"></i>Voltar ao Menu
+                    </button>
                 </div>
             </div>
         </div>
@@ -459,9 +449,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js"></script>
     
     <script>
+        // Configuração da API - Altere para a URL do seu backend
+        const API_BASE_URL = 'https://seu-backend.herokuapp.com'; // Exemplo: substitua pela URL real
+
         // Variáveis globais
         let currentClient = null;
         let html5QrcodeScanner = null;
+        let currentScreen = 'initialScreen';
+        let authToken = null;
 
         // Elementos da interface
         const elements = {
@@ -475,14 +470,35 @@
             generateQRScreen: document.getElementById('generateQRScreen'),
             checkPointsScreen: document.getElementById('checkPointsScreen'),
             settingsScreen: document.getElementById('settingsScreen'),
-            qrCodeContainer: document.getElementById('qrCodeContainer')
+            qrCodeContainer: document.getElementById('qrCodeContainer'),
+            historyList: document.getElementById('historyList'),
+            clientsTableBody: document.getElementById('clientsTableBody'),
+            premiumsContainer: document.getElementById('premiumsContainer')
         };
 
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
-            // Event Listeners
-            document.getElementById('clientViewLink').addEventListener('click', showClientArea);
-            document.getElementById('adminViewLink').addEventListener('click', showAdminArea);
+            // Configurar tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Ativar tab clicada e desativar outras
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Mostrar área correspondente
+                    if (tabName === 'client') {
+                        elements.clientArea.classList.remove('hidden');
+                        elements.adminArea.classList.add('hidden');
+                        showScreen('initialScreen');
+                    } else {
+                        elements.clientArea.classList.add('hidden');
+                        elements.adminArea.classList.remove('hidden');
+                        showScreen('adminLoginScreen');
+                    }
+                });
+            });
             
             // Formulários do cliente
             document.getElementById('cpfForm').addEventListener('submit', checkCPF);
@@ -495,8 +511,14 @@
             
             // Botões de navegação
             document.getElementById('generateQRBtn').addEventListener('click', () => showScreen('generateQRScreen'));
-            document.getElementById('checkPointsBtn').addEventListener('click', () => showScreen('checkPointsScreen'));
-            document.getElementById('settingsBtn').addEventListener('click', () => showScreen('settingsScreen'));
+            document.getElementById('checkPointsBtn').addEventListener('click', () => {
+                showScreen('checkPointsScreen');
+                loadClients();
+            });
+            document.getElementById('settingsBtn').addEventListener('click', () => {
+                showScreen('settingsScreen');
+                loadPrizes();
+            });
             document.getElementById('adminLogoutBtn').addEventListener('click', adminLogout);
             
             // Botões de voltar
@@ -506,24 +528,9 @@
             
             // Botão de escanear QR Code
             document.getElementById('scanQRBtn').addEventListener('click', openQRScanner);
-            
-            // Inicializar na área do cliente
-            showClientArea();
         });
 
         // Funções de navegação
-        function showClientArea() {
-            elements.clientArea.classList.remove('hidden');
-            elements.adminArea.classList.add('hidden');
-            showScreen('initialScreen');
-        }
-
-        function showAdminArea() {
-            elements.clientArea.classList.add('hidden');
-            elements.adminArea.classList.remove('hidden');
-            showScreen('adminLoginScreen');
-        }
-
         function showScreen(screenName) {
             // Oculta todas as telas
             Object.keys(elements).forEach(key => {
@@ -533,58 +540,110 @@
             });
             
             // Mostra a tela solicitada
-            elements[screenName].classList.remove('hidden');
+            if (elements[screenName]) {
+                elements[screenName].classList.remove('hidden');
+            }
+            currentScreen = screenName;
         }
 
         // Funções do cliente
-        function checkCPF(e) {
+        async function checkCPF(e) {
             e.preventDefault();
             const cpf = document.getElementById('cpf').value;
             
-            // Simulação de verificação de CPF
-            if (cpf === '12345678900') {
-                // CPF existe, mostrar tela principal
-                currentClient = {
-                    name: 'João Silva',
-                    cpf: cpf,
-                    points: 7,
-                    visits: 7
-                };
-                updateClientUI();
-                showScreen('mainScreen');
-            } else {
-                // CPF não existe, mostrar tela de cadastro
-                document.getElementById('clientCpf').value = cpf;
-                showScreen('registerScreen');
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/client/check-cpf`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ cpf })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // CPF existe, mostrar tela principal
+                    currentClient = data.client;
+                    updateClientUI();
+                    loadClientHistory();
+                    loadPrizes();
+                    showScreen('mainScreen');
+                } else if (response.status === 404) {
+                    // CPF não existe, mostrar tela de cadastro
+                    document.getElementById('clientCpf').value = cpf;
+                    showScreen('registerScreen');
+                } else {
+                    alert('Erro: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Erro ao verificar CPF:', error);
+                alert('Erro ao conectar com o servidor.');
             }
         }
 
-        function registerClient(e) {
+        async function registerClient(e) {
             e.preventDefault();
             const name = document.getElementById('clientName').value;
             const cpf = document.getElementById('clientCpf').value;
             
-            // Simulação de cadastro
-            currentClient = {
-                name: name,
-                cpf: cpf,
-                points: 0,
-                visits: 0
-            };
-            
-            updateClientUI();
-            showScreen('mainScreen');
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/client/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ nome: name, cpf })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    currentClient = { nome: name, cpf, pontos: 0 };
+                    updateClientUI();
+                    showScreen('mainScreen');
+                } else {
+                    alert('Erro: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Erro ao cadastrar cliente:', error);
+                alert('Erro ao conectar com o servidor.');
+            }
         }
 
         function updateClientUI() {
             if (!currentClient) return;
             
-            document.getElementById('welcomeMessage').textContent = `👋 Olá, ${currentClient.name}!`;
-            document.getElementById('pointsCount').textContent = currentClient.points;
-            document.getElementById('visitsCount').textContent = currentClient.visits;
+            document.getElementById('welcomeMessage').textContent = `Olá, ${currentClient.nome}!`;
+            document.getElementById('pointsCount').textContent = currentClient.pontos;
+            document.getElementById('visitsCount').textContent = currentClient.visitas || currentClient.pontos;
         }
 
-        function openQRScanner() {
+        async function loadClientHistory() {
+            if (!currentClient) return;
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/client/summary/${currentClient.cpf}`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    elements.historyList.innerHTML = '';
+                    data.visits.forEach(visit => {
+                        const visitDate = new Date(visit.created_at).toLocaleDateString('pt-BR');
+                        const visitItem = document.createElement('div');
+                        visitItem.className = 'visit-item';
+                        visitItem.innerHTML = `<strong>${visitDate}</strong> | Pedido ${visit.order_number}`;
+                        elements.historyList.appendChild(visitItem);
+                    });
+                } else {
+                    console.error('Erro ao carregar histórico:', data.error);
+                }
+            } catch (error) {
+                console.error('Erro ao carregar histórico:', error);
+            }
+        }
+
+        async function openQRScanner() {
             const modal = new bootstrap.Modal(document.getElementById('qrScannerModal'));
             modal.show();
             
@@ -599,17 +658,38 @@
                     fps: 10,
                     qrbox: { width: 250, height: 250 }
                 },
-                (decodedText, decodedResult) => {
+                async (decodedText, decodedResult) => {
                     // QR Code lido com sucesso
                     console.log(`QR Code lido: ${decodedText}`);
                     html5QrcodeScanner.stop();
                     modal.hide();
                     
-                    // Simulação de resgate de pontos
-                    alert(`QR Code lido com sucesso! Pontos adicionados.`);
-                    currentClient.points++;
-                    currentClient.visits++;
-                    updateClientUI();
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/api/client/redeem`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ 
+                                cpf: currentClient.cpf, 
+                                token: decodedText 
+                            })
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (response.ok) {
+                            alert('Pontos adicionados com sucesso!');
+                            currentClient.pontos = data.pontos;
+                            updateClientUI();
+                            loadClientHistory();
+                        } else {
+                            alert('Erro: ' + data.error);
+                        }
+                    } catch (error) {
+                        console.error('Erro ao resgatar pontos:', error);
+                        alert('Erro ao conectar com o servidor.');
+                    }
                 },
                 (errorMessage) => {
                     // Erro ignorado para não poluir o console
@@ -627,52 +707,166 @@
         }
 
         // Funções do admin
-        function adminLogin(e) {
+        async function adminLogin(e) {
             e.preventDefault();
             const user = document.getElementById('adminUser').value;
             const password = document.getElementById('adminPassword').value;
             
-            // Simulação de login
-            if (user === 'admin' && password === 'admin') {
-                showScreen('adminMenuScreen');
-            } else {
-                alert('Usuário ou senha inválidos!');
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ usuario: user, senha: password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    authToken = data.token;
+                    showScreen('adminMenuScreen');
+                } else {
+                    alert('Erro: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Erro no login:', error);
+                alert('Erro ao conectar com o servidor.');
             }
         }
 
         function adminLogout() {
+            authToken = null;
             showScreen('adminLoginScreen');
         }
 
-        function generateQRCode(e) {
+        async function generateQRCode(e) {
             e.preventDefault();
             const orderNumber = document.getElementById('orderNumber').value;
             const orderValue = document.getElementById('orderValue').value;
             
-            // Gerar QR Code
-            elements.qrCodeContainer.classList.remove('hidden');
-            document.getElementById('qrcode').innerHTML = '';
-            
-            // Simulação de dados do QR Code (em uma aplicação real, viria do backend)
-            const qrData = `DECKBAR-${orderNumber}-${orderValue}-${Date.now()}`;
-            
-            new QRCode(document.getElementById('qrcode'), {
-                text: qrData,
-                width: 200,
-                height: 200
-            });
-            
-            // Simular expiração após 30 segundos
-            setTimeout(() => {
-                elements.qrCodeContainer.classList.add('hidden');
-                alert('QR Code expirado. Gere um novo código.');
-            }, 30000);
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/qrcode/generate`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ orderNumber, amount: orderValue })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Gerar QR Code visual
+                    elements.qrCodeContainer.classList.remove('hidden');
+                    document.getElementById('qrcode').innerHTML = '';
+                    
+                    new QRCode(document.getElementById('qrcode'), {
+                        text: data.token,
+                        width: 200,
+                        height: 200
+                    });
+                    
+                    // Simular expiração após 30 segundos
+                    setTimeout(() => {
+                        elements.qrCodeContainer.classList.add('hidden');
+                        alert('QR Code expirado. Gere um novo código.');
+                    }, 30000);
+                } else {
+                    alert('Erro: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Erro ao gerar QR Code:', error);
+                alert('Erro ao conectar com o servidor.');
+            }
         }
 
-        function savePremiums(e) {
+        async function loadClients() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/clients`, {
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    elements.clientsTableBody.innerHTML = '';
+                    data.clients.forEach(client => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${client.nome}</td>
+                            <td>${client.cpf}</td>
+                            <td>${client.pontos}</td>
+                            <td>#${client.ultimo_pedido || 'N/A'}</td>
+                        `;
+                        elements.clientsTableBody.appendChild(row);
+                    });
+                } else {
+                    alert('Erro: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Erro ao carregar clientes:', error);
+                alert('Erro ao conectar com o servidor.');
+            }
+        }
+
+        async function loadPrizes() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/settings/prizes`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Exibir prêmios para o cliente
+                    if (elements.premiumsContainer) {
+                        elements.premiumsContainer.innerHTML = '';
+                        if (data.prizes.premio5) {
+                            const img = document.createElement('img');
+                            img.src = `${API_BASE_URL}${data.prizes.premio5}`;
+                            img.alt = 'Prêmio 5 pontos';
+                            img.className = 'premium-image';
+                            elements.premiumsContainer.appendChild(img);
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Erro ao carregar prêmios:', error);
+            }
+        }
+
+        async function savePremiums(e) {
             e.preventDefault();
-            // Simulação de salvamento
-            alert('Configurações de prêmios salvas com sucesso!');
+            const formData = new FormData();
+            const premio5 = document.getElementById('premio5').files[0];
+            const premio10 = document.getElementById('premio10').files[0];
+            const premio15 = document.getElementById('premio15').files[0];
+            
+            if (premio5) formData.append('premio5', premio5);
+            if (premio10) formData.append('premio10', premio10);
+            if (premio15) formData.append('premio15', premio15);
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/settings/prizes`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Configurações salvas com sucesso!');
+                } else {
+                    alert('Erro: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Erro ao salvar prêmios:', error);
+                alert('Erro ao conectar com o servidor.');
+            }
         }
     </script>
 </body>
