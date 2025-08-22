@@ -12,7 +12,10 @@
     <div class="app-container">
         <!-- Cabeçalho com Logo -->
         <div class="logo-container">
-            <div class="logo">DECK BAR</div>
+            <!-- Substitua o src abaixo pela sua arte (ex.: logo.png) -->
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Deck Bar" class="logo-img">
+            </div>
             <div class="slogan">Aqui quem é de casa ganha mais!</div>
         </div>
         
@@ -98,13 +101,18 @@
             
             <!-- Área de Administração -->
             <div id="adminArea" class="hidden">
-                <!-- Login Admin -->
+                <!-- Login Admin (Etapa 1) -->
                 <div id="adminLoginScreen">
                     <h4 class="text-center mb-4">Painel do Administrador</h4>
+
+                    <!-- Alertas de login -->
+                    <div id="adminLoginAlert" class="alert alert-danger d-none" role="alert"></div>
+                    <div id="adminLoginInfo" class="alert alert-info d-none" role="alert"></div>
+
                     <form id="adminLoginForm">
                         <div class="mb-3">
-                            <label for="adminUser" class="form-label">Usuário:</label>
-                            <input type="text" class="form-control" id="adminUser" required>
+                            <label for="adminUser" class="form-label">Usuário (e-mail):</label>
+                            <input type="email" class="form-control" id="adminUser" required>
                         </div>
                         <div class="mb-3">
                             <label for="adminPassword" class="form-label">Senha:</label>
@@ -113,6 +121,39 @@
                         <button type="submit" class="btn btn-primary w-100">
                             <i class="fas fa-sign-in-alt me-2"></i>Entrar
                         </button>
+                    </form>
+                </div>
+
+                <!-- Verificação em Duas Etapas (Etapa 2) -->
+                <div id="admin2faScreen" class="hidden">
+                    <h4 class="text-center mb-4">Verificação em Duas Etapas</h4>
+
+                    <div id="admin2faAlert" class="alert alert-danger d-none" role="alert"></div>
+                    <div id="admin2faInfo" class="alert alert-info d-none" role="alert">
+                        Enviamos um código de 6 dígitos para seu e-mail. Ele expira em <span id="twofaCountdown">05:00</span>.
+                    </div>
+
+                    <form id="admin2faForm">
+                        <!-- Campos ocultos para manter o contexto -->
+                        <input type="hidden" id="adminAttemptId">
+                        <input type="hidden" id="adminEmailCtx">
+
+                        <div class="mb-3">
+                            <label for="admin2faCode" class="form-label">Código de verificação:</label>
+                            <input type="text" class="form-control" id="admin2faCode" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="6 dígitos" required>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-shield-alt me-2"></i>Validar Código
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" id="adminResend2faBtn">
+                                <i class="fas fa-paper-plane me-2"></i>Reenviar Código
+                            </button>
+                            <button type="button" class="btn btn-link" id="adminBackToLoginBtn">
+                                <i class="fas fa-arrow-left me-2"></i>Voltar ao login
+                            </button>
+                        </div>
                     </form>
                 </div>
                 
