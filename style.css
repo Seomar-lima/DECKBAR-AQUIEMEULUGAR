@@ -1,3 +1,10 @@
+:root {
+    --primary: #6A4E07;   /* marrom escuro */
+    --secondary: #C9A227; /* dourado forte */
+    --accent: #FFD700;    /* amarelo ouro */
+    --light: #FFF9E6;     /* bege claro */
+    --dark: #3E2C00;      /* marrom bem escuro */
+}
 body {
     background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
     min-height: 100vh;
